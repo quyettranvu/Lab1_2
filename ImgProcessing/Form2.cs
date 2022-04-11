@@ -138,5 +138,10 @@ namespace ImgProcessing
             pictureBox3.Image = img_out;
             return true;
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }
