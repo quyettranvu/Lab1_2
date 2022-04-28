@@ -71,25 +71,25 @@ namespace ImgProcessing
             var image3 = pictureBox1.Image as Bitmap;
             int t = 0;
 
-            for (int y = 0; y < h; y++)
+            for (int y = 0; y < h; ++y)
             {
-                for (int x = 0; x < w; x++)
+                for (int x = 0; x < w; ++x)
                 {
                     var pix1 = image3.GetPixel(x, y);
-                    t = t + (int)((pix1.R + pix1.G + pix1.B) / 3);
+                    t = t + ((pix1.R + pix1.G + pix1.B) / 3);
                     //sum of pixels
                 }
             }
 
             t = t / (w * h);
 
-            for (int y = 0; y < h; y++)
+            for (int y = 0; y < h; ++y)
             {
-                for (int x = 0; x < w; x++)
+                for (int x = 0; x < w; ++x)
                 {
                     var pix1 = image3.GetPixel(x, y);
-                    if ((int)((pix1.R + pix1.G + pix1.B) / 3) > t) { img_out.SetPixel(x, y, Color.Black); }
-                    else { img_out.SetPixel(x, y, Color.White); }
+                    if (((pix1.R + pix1.G + pix1.B) / 3) > t) { img_out.SetPixel(x, y, Color.White); }
+                    else { img_out.SetPixel(x, y, Color.Black); }
                 }
             }
             return true;
